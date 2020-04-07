@@ -4,9 +4,9 @@ import Router from 'next/router';
 
 import './styles.css';
 
-import { trackPageView } from '../core/gtag';
-import Footer from '../shared/components/footer/footer.component';
-import Header from '../shared/components/header/header.component';
+import { trackPageView } from '../core/segment';
+import Footer from '../shared/components/footer.component';
+import Header from '../shared/components/header.component';
 
 Router.events.on('routeChangeComplete', url => trackPageView(url));
 

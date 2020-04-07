@@ -1,7 +1,7 @@
 import React, { Fragment, FunctionComponent } from 'react';
 import Head from 'next/head';
 
-import { MetaTags } from '../../../interfaces/meta-tags';
+import { MetaTags } from '../../interfaces/meta-tags';
 
 type Props = {
   tags: MetaTags;
@@ -96,3 +96,39 @@ const Meta: FunctionComponent<Props> = ({ tags }) => {
 };
 
 export default Meta;
+
+
+// <script type="application/ld+json">
+//         {
+//             "@context": "http://schema.org",
+//             "@type": "BlogPosting",
+//             "mainEntityOfPage": {
+//                 "@type": "WebPage",
+//                 "@id": "https://blog.apideck.com/platform-heroes-github-marketplace"
+//             },
+//             "headline": "Platform Heroes - GitHub Marketplace - Corey Hobbs",
+//             "datePublished": "2018-11-19T13:13:29+01:00",
+//             "dateModified": "2018-11-22T07:44:40+01:00",
+//             "author": {
+//                 "@type": "Person",
+//                 "name": "Gertjan De Wilde"
+//             },
+//             "description": "The Gitub Marketplace is one of the most impressive B2D platform plays. Corey Hobbs shares his insights into their way of work and metrics.",
+//             "image": {
+//                 "@type": "ImageObject",
+//                 "url": "https://images.storychief.com/account_7475/marketplace_c3eeca1a8099bf2ff67e07bf035e3a77_2000.png"
+//                             ,
+//             "width": 1200,
+//                     "height": 628
+        
+//         },
+//         "publisher": {
+//             "@type": "Organization",
+//             "name": "Apideck Blog",
+//                 "logo": {
+//                     "@type": "ImageObject",
+//                     "url": "https://images.storychief.com/x94/filters:no_upscale()//account_7475/favicon_23bdac4979a5a03d974199f95d9600d3.png"
+//                 }
+//             }
+//         }
+//     </script>

@@ -1,15 +1,15 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import './home.css';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
 import { defaultMetaTags } from '../core/constants';
-import Layout from '../shared/components/layout/layout.component';
+import Layout from '../shared/components/layout.component';
 import { ContentfulService } from '../core/contentful';
 import { BlogPost } from '../interfaces/post';
-import Card from '../shared/components/card/card.component';
+import Card from '../shared/components/card.component';
 import Paginator from '../shared/components/paginator/paginator.component';
 import TagFilters from '../shared/components/tag-filters/tag-filters.component';
+import { TWITTER_URL } from '../template'
 
 const calculateRange = length => Array.from({ length }, (v, k) => k + 1);
 
@@ -36,38 +36,44 @@ const IndexPage: NextPage = (props: Props) => {
   const rangeLimit = Math.ceil(total / limit);
   const range = calculateRange(rangeLimit);
 
-  const [page, updatePage] = useState(!!props.page ? props.page : 1);
+  // const [page, updatePage] = useState(!!props.page ? props.page : 1);
   const [tag, updateTag] = useState('');
 
   useEffect(() => {
-    void router.push({ pathname: '/', query: { page: page, tag: tag } });
-  }, [page, tag]);
+    void router.push({ pathname: '/', query: { tag: tag } });
+  }, [tag]);
 
   const handleTagChosen = tag => {
-    updatePage(1);
+    // updatePage(1);
     updateTag(tag);
   };
 
   return (
     <Layout metaTags={defaultMetaTags}>
-      <div className="container">
-        <div className="blogposts">
-          <h1 className="blogposts__header">Latest posts</h1>
-          <div className="cards-deck">{cards(entries)}</div>
-        </div>
-        <div className="sidenav">
-          <TagFilters
-            tags={tags}
-            updatePage={handleTagChosen}
-            selectedTagId={tag}
-          />
-        </div>
-        <div className="pagination">
-          <Paginator
-            handlePaginationChange={event => updatePage(event)}
-            range={range}
-            skip={page}
-          />
+      <header>
+        <h1>Blog</h1>
+        <h2>Company Updates, Interviews, Ecosystem Breakdowns & Technology Articles</h2>
+        <a className='text-white' href={TWITTER_URL}>Follow Us On Twitter</a>
+      </header>
+      <div className="container md:px-10">
+        <div className="grid-container">
+          <div className="blogposts">
+            <div className="cards-deck">{cards(entries)}</div>
+          </div>
+          {/* <div className="sidenav">
+            <TagFilters
+              tags={tags}
+              updatePage={handleTagChosen}
+              selectedTagId={tag}
+            />
+          </div> */}
+          {/* <div className="pagination">
+            <Paginator
+              handlePaginationChange={event => updatePage(event)}
+              range={range}
+              skip={page}
+            />
+          </div> */}
         </div>
       </div>
     </Layout>
@@ -90,7 +96,7 @@ IndexPage.getInitialProps = async ({ query }) => {
   } = await contentfulService.getBlogPostEntries({
     tag: query.tag ? query.tag.toString() : '',
     skip: (page - 1) * 3,
-    limit: 3
+    limit: 100
   });
 
   // TODO: need to move outside

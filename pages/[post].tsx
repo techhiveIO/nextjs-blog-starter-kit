@@ -1,14 +1,14 @@
 import { NextPage } from 'next';
 import React from 'react';
-import './styles.css';
 import ReactMarkdown from 'react-markdown';
+import Error from './_error';
 
-import Layout from '../../shared/components/layout/layout.component';
-import { ContentfulService } from '../../core/contentful';
+import Layout from '../shared/components/layout.component';
+import { ContentfulService } from '../core/contentful';
 
-import { BlogPost } from '../../interfaces/post';
-import { MetaTags, PageType, RobotsContent } from '../../interfaces/meta-tags';
-import Card from '../../shared/components/card/card.component';
+import { BlogPost } from '../interfaces/post';
+import { MetaTags, PageType, RobotsContent } from '../interfaces/meta-tags';
+import Card from '../shared/components/card.component';
 
 type Props = {
   article: BlogPost;
@@ -19,7 +19,10 @@ const renderCards = suggestions =>
   suggestions.map((suggestion, index) => (
     <Card key={index} info={suggestion} />
   ));
+
 const PostPage: NextPage = (props: Props) => {
+  if (!props.article) return <p>Not found</p>
+
   const postMetaTags: MetaTags = {
     canonical: `${process.env.DOMAIN_PUBLIC}`,
     description: `${props.article.description}`,
@@ -32,32 +35,37 @@ const PostPage: NextPage = (props: Props) => {
 
   return (
     <Layout metaTags={postMetaTags}>
-      <div className="post-container" id="post-container">
-        <div className="post-header">
-          <h1>{props.article.title}</h1>
+      <header className='post'>
+      <h1 className='md:text-4xl sm:text-xl'>{props.article.title}</h1>
           <div className="author">
             <p>Written by {props.article.author.name}</p>
           </div>
-        </div>
+      </header>
+      <article>
         <ReactMarkdown className="markdown" source={props.article.body} />
-      </div>
+      </article>
       <div className="suggestions">{renderCards(props.suggestedArticles)}</div>
     </Layout>
   );
 };
 
-PostPage.getInitialProps = async ({ query }) => {
+PostPage.getInitialProps = async ({ query, res }) => {
   const contentfulService = new ContentfulService();
+  let suggestedArticles = []
 
   const { post } = query;
   const article = await contentfulService.getPostBySlug(post);
 
-  const tags = article.tags ? article.tags.map(tag => tag.sys.id) : [];
+  if (article) {
+    const tags = article.tags ? article.tags.map(tag => tag.sys.id) : [];
 
-  const suggestedArticles = await contentfulService.fetchSuggestions(
-    tags,
-    article.slug
-  );
+    let suggestedArticles = await contentfulService.fetchSuggestions(
+      tags,
+      article.slug
+    );
+  } else {
+    if (res) res.statusCode = 404;
+  }
 
   return { article, suggestedArticles };
 };

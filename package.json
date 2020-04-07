@@ -9,6 +9,7 @@
     "start": "next start",
     "export": "next build && next export",
     "postexport": "node utils/post-export.js",
+    "deploy": "npm run build && now switch apideck && now --prod",
     "type-check": "tsc",
     "format:write": "prettier \"**/*.{tsx,js,json,md,css}\" --write",
     "format:test": "prettier \"**/*.{tsx,js,json,md,css}\" --list-different",
@@ -41,7 +42,9 @@
   "homepage": "https://github.com/techhiveIO/nextjs-static-boilerplate#readme",
   "pre-commit": "pretty-quick --staged",
   "dependencies": {
+    "@segment/snippet": "^4.4.0",
     "@zeit/next-css": "^1.0.1",
+    "classnames": "^2.2.6",
     "contentful": "~7.10.0",
     "dotenv": "~8.1.0",
     "dotenv-webpack": "^1.7.0",
@@ -61,12 +64,15 @@
     "@typescript-eslint/eslint-plugin": "~2.3.2",
     "@typescript-eslint/parser": "~2.3.2",
     "all-contributors-cli": "^6.9.1",
+    "babel-plugin-module-resolver": "^4.0.0",
     "contentful-cli": "~1.1.1",
     "contentful-migration": "~1.0.2",
     "eslint-config-prettier": "~6.3.0",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "~1.18.2",
     "pretty-quick": "~1.11.1",
     "standard-version": "~7.0.0",
+    "tailwindcss": "^1.2.0",
     "typescript": "~3.6.3"
   }
 }

@@ -18,7 +18,18 @@ const next_config = {
       })
     ];
 
+    // Here is the magic
+    // We push our config into the resolve.modules array
+    config.resolve.modules.push(path.resolve('./'))
+
+    config.resolve.alias['template'] = path.join(__dirname, 'template')
+
     return config;
+  },
+
+  env: {
+    'CONTENTFUL_SPACE': process.env.CONTENTFUL_SPACE,
+    'CONTENTFUL_TOKEN': process.env.CONTENTFUL_TOKEN
   },
 
   exportPathMap: async () => {
