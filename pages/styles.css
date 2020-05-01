@@ -123,6 +123,14 @@ header {
   min-height: 350px;
 }
 
+@media (max-width: 768px) {
+  header {
+    padding: 50px 20px;
+    min-height: 0;
+  }
+}
+
+
 header h1 {
   margin-bottom: 0px;
 }
@@ -337,7 +345,7 @@ ol {
 
 @media (max-width: 768px) {
   header.post {
-    min-height: 600px;
+    min-height: 700px;
   }
 
   article img {

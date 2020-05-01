@@ -1,7 +1,7 @@
 {
-  "name": "nextjs-static-starter-kit",
+  "name": "blogdeck-template",
   "version": "1.1.0",
-  "description": "NextJS Boilerplate with static export",
+  "description": "Blogdeck template",
   "main": "server.js",
   "scripts": {
     "dev": "next",
