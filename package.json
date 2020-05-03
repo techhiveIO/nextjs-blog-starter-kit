@@ -1,6 +1,6 @@
 {
   "name": "blogdeck-template",
-  "version": "1.1.0",
+  "version": "0.0.1",
   "description": "Blogdeck template",
   "main": "server.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "start": "next start",
     "export": "next build && next export",
     "postexport": "node utils/post-export.js",
-    "deploy": "npm run build && now switch apideck && now --prod",
+    "deploy": "now switch $TEAM && now --prod",
     "type-check": "tsc",
     "format:write": "prettier \"**/*.{tsx,js,json,md,css}\" --write",
     "format:test": "prettier \"**/*.{tsx,js,json,md,css}\" --list-different",
