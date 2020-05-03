@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "alias": [
-    "blog.apideck.com"
-  ],
   "build": {
     "env": {
       "CONTENTFUL_SPACE": "@contentful_space",

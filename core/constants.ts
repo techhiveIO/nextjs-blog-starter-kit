@@ -3,7 +3,7 @@ import { concatenateStrings } from '../shared/helpers/helper';
 import { BASE_URL, SITE_NAME, OG_IMAGE, OG_DESCRIPTION } from '../template'
 
 export const defaultMetaTags: MetaTags = {
-  canonical: `${process.env.DOMAIN_PUBLIC}`,
+  canonical: BASE_URL,
   description: OG_DESCRIPTION,
   image: OG_IMAGE,
   robots: concatenateStrings(RobotsContent.index, RobotsContent.follow),

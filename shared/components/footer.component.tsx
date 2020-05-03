@@ -1,11 +1,13 @@
 import React, { FunctionComponent } from 'react';
-import { COPYRIGHT_NAME } from '../../template'
+import classNames from 'classnames'
+import { COPYRIGHT_NAME, FOOTER_LINKS } from '../../template'
+declare const window: any;
 
 type Props = {};
 const Footer: FunctionComponent<Props> = ({}) => {
   const handleClickManageCookies = (e) => {
     e.preventDefault()
-    // window && window.Metomic && window.Metomic('ConsentManager:show')
+    window.Metomic('ConsentManager:show')
   }
 
   return (
@@ -14,10 +16,10 @@ const Footer: FunctionComponent<Props> = ({}) => {
         © {new Date().getFullYear()} {COPYRIGHT_NAME}. Mentioned product names and logos are the property of their respective owners.
       </div>
       <div className='w-full block flex-grow lg:flex lg:items-center justify-end lg:content-end lg:w-auto'>
-        <a href='https://termsfeed.com/terms-conditions/957c85c1b089ae9e3219c83eff65377e' rel='nofollow' className='mr-5'>Terms</a>
-        <a href='https://compliance.apideck.com/privacy-policy' rel='nofollow' className='mr-5'>Privacy Policy</a>
         <a href="#" onClick={(e) => handleClickManageCookies(e)} className='mr-5'>Manage cookies</a>
-        <a href='https://apideck.gdprform.io/en' rel='nofollow' className='mr-5'>Data Requests</a>
+        {FOOTER_LINKS.map(item => <a href={item.href} key={item.key} className={classNames('ml-5', item.className)}>
+          {item.label}
+        </a>)}
       </div>
     </footer>
   );

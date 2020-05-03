@@ -1,11 +1,16 @@
 export const SITE_NAME = 'Apideck Blog'
 export const COPYRIGHT_NAME = 'Apideck'
 export const BASE_URL = 'https://blog.apideck.com/'
-export const FAVICON = '/favicon-96x96.png'
+export const FAVICON = 'https://res.cloudinary.com/apideck/image/upload/v1588464645/blog/favicon.png'
+export const LOGO = 'https://res.cloudinary.com/apideck/image/upload/v1588464645/blog/logo.svg'
+export const OG_IMAGE = 'https://res.cloudinary.com/apideck/image/upload/v1588464645/blog/social.jpg'
 export const OG_DESCRIPTION = 'Stay up to date with the latest Apideck news. Get the latest industry insights and trends about building successful SaaS ecosystems, platforms, partnerships, integrations & APIs.'
-export const OG_IMAGE = 'https://blog.apideck.com/static/social.jpg'
 export const TWITTER_HANDLE = 'apideck'
 export const TWITTER_URL = 'https://www.twitter.com/' + TWITTER_HANDLE
+export const MASTHEAD_BG_COLOR = '#080b4b'
+export const FOOTER_BG_COLOR = '#080A2D'
+export const METOMIC_PROJECT_ID = '97d085e6-af9d-4990-8fa2-6fbd04940e49'
+export const SEGMENT_API_KEY = ''
 
 export const NAV_LINKS = [
   {
@@ -43,6 +48,24 @@ export const NAV_LINKS = [
     'label': 'Sign up',
     'type': 'button',
     'className': 'ml-4'
+  }
+]
+
+export const FOOTER_LINKS = [
+  {
+    'id': 'terms',
+    'href': 'https://termsfeed.com/terms-conditions/957c85c1b089ae9e3219c83eff65377e',
+    'label': 'Terms'
+  },
+  {
+    'id': 'privacy-policy',
+    'href': 'https://compliance.apideck.com/privacy-policy',
+    'label': 'Privacy Policy',
+  },
+  {
+    'id': 'data-requests',
+    'href': 'https://apideck.gdprform.io/en',
+    'label': 'Data Requests'
   }
 ]
 

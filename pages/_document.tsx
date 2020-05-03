@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import * as snippet from '@segment/snippet'
+import { FAVICON, SEGMENT_API_KEY, METOMIC_PROJECT_ID } from '../template'
 
 type Props = {
   isProduction: boolean;
@@ -14,7 +15,7 @@ export default class extends Document<Props> {
 
   renderSegmentSnippet () {
     const opts = {
-      apiKey: 'rIExQ9Ulg8mAqZKNWGJH6yShQg2F1usQ',
+      apiKey: SEGMENT_API_KEY,
       page: false // Set this to `false` if you want to manually fire `analytics.page()` from within your pages.
     }
 
@@ -37,9 +38,9 @@ export default class extends Document<Props> {
           <base href="/" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-          <link rel='icon' href='/static/favicon.ico' />
+          <link rel='icon' href={FAVICON} />
 
-          <script src="https://config.metomic.io/config.js?id=prj:97d085e6-af9d-4990-8fa2-6fbd04940e49" />
+          <script src={`https://config.metomic.io/config.js?id=prj:${METOMIC_PROJECT_ID}`} />
           <script src="https://consent-manager.metomic.io/embed.js" />
 
           {/* {isProduction && ( */}

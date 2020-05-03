@@ -9,6 +9,7 @@ import { ContentfulService } from '../core/contentful';
 import { BlogPost } from '../interfaces/post';
 import { MetaTags, PageType, RobotsContent } from '../interfaces/meta-tags';
 import Card from '../shared/components/card.component';
+import { BASE_URL } from '../template';
 
 type Props = {
   article: BlogPost;
@@ -24,7 +25,7 @@ const PostPage: NextPage = (props: Props) => {
   if (!props.article) return <p>Not found</p>
 
   const postMetaTags: MetaTags = {
-    canonical: `${process.env.DOMAIN_PUBLIC}`,
+    canonical: BASE_URL + props.article.slug,
     description: `${props.article.description}`,
     // contentful does not set the http or https before an image link, so we need to add it ourselves
     image: `https:${props.article.heroImage.url}`,

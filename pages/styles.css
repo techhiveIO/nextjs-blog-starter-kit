@@ -33,7 +33,6 @@ a:hover {
 nav {
   display: flex;
   padding: 1.5rem 1rem;
-  background-color: var(--masthead-background-color);
 }
 
 .brand {
@@ -47,12 +46,7 @@ nav {
   }
 }
 
-footer {
-  background-color: var(--footer-background-color);
-  color: white;
-}
-
-footer a {
+footer, footer a {
   color: white;
 }
 
@@ -64,59 +58,11 @@ footer a {
 
 
 :root {
-  /* OLD */
-  --link-color: #6f56fc;
-  --active-border-color: blue;
-  --input-padding: 10px;
-
-  /* UTIL */
-  --color-white: #fff;
-  --font-family-basier: 'basier_circle', -apple-system, system-ui,
-    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --color-primary-lighter: #a036ec;
-  --color-primary: #8a13f2;
-  --color-secondary: #5c51ce;
-  --color-darkest: #080b4b;
-  --color-darker: #21255c;
-  --color-dark: #292d6a;
-  --color-light: #eff0fd;
-  --color-lighter: #d6d7e6;
-  --color-lightest: #f5f6f8;
-  --color-text-darkest: #04072d;
-  --color-text: #414386;
-  --color-text-lighter: #878ac6;
-  --color-danger: #ff5630;
-  --color-danger-border: rgb(255, 196, 195);
-  --color-danger-background: rgb(254, 237, 236);
-  --color-danger-background-darker: rgb(255, 215, 214);
-  --gradient: linear-gradient(225deg, #be2afa 0%, #5c51ce 100%);
-
-  /* COMPONENT SPECIFIC */
-  --body-background-color: #f4f5f6;
-  --main-padding-horizontal: 30px;
-  --sidebar-user-background-color: var(--color-darker);
-  --sidebar-user-hover-background-color: var(--color-dark);
-  --sidebar-icon-color: #8487a6;
-  --sidebar-secondary-color: #a2a3b3;
-  --sidebar-menu-item-active-background-color: var(--color-darker);
-  --sidebar-menu-item-hover-background-color: var(--color-dark);
-  --sidebar-divider-color: #2a2f73;
-  --sidebar-menu-item-extra-color: #a5a6ba;
-  --sidebar-text-color: #9ca0c3;
-  --sidebar-button-border-color: #575c92;
-  --sidebar-button-text-color: #a7a8bb;
-  --dropdown-link-hover-background-color: #eff0fd;
-  --signup-title-text-color: #030481;
-  --signup-text-color: #656688;
-
-  --masthead-background-color: var(--color-darkest);
-  --footer-background-color: #080A2D;
   --box-shadow-long: 0 50px 100px -30px rgba(0,0,0,0.5);
 }
 
 
 header {
-  background-color: var(--masthead-background-color);
   text-align: center;
   color: #FFF;
   padding-top: 100px;
