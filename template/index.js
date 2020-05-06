@@ -9,8 +9,13 @@ export const TWITTER_HANDLE = 'apideck'
 export const TWITTER_URL = 'https://www.twitter.com/' + TWITTER_HANDLE
 export const MASTHEAD_BG_COLOR = '#080b4b'
 export const FOOTER_BG_COLOR = '#080A2D'
+export const PRIMARY_COLOR = ''
 export const METOMIC_PROJECT_ID = '97d085e6-af9d-4990-8fa2-6fbd04940e49'
 export const SEGMENT_API_KEY = ''
+export const CTA_TITLE = 'Ready to get started?'
+export const CTA_DESCRIPTION = 'Start building your ecosystem in less than 5 minutes'
+export const CTA_BUTTON_LABEL = 'Sign up'
+export const CTA_BUTTON_LINK = 'https://app.apideck.com/signup'
 
 export const NAV_LINKS = [
   {

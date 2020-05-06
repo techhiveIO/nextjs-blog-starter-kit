@@ -3,6 +3,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import Error from './_error';
 
+import Cta from '../shared/components/cta.component';
 import Layout from '../shared/components/layout.component';
 import { ContentfulService } from '../core/contentful';
 
@@ -46,6 +47,7 @@ const PostPage: NextPage = (props: Props) => {
         <ReactMarkdown className="markdown" source={props.article.body} />
       </article>
       <div className="suggestions">{renderCards(props.suggestedArticles)}</div>
+      <Cta />
     </Layout>
   );
 };
