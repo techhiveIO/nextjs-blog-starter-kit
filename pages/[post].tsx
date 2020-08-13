@@ -47,7 +47,6 @@ const PostPage: NextPage = (props: Props) => {
         <ReactMarkdown className="markdown" source={props.article.body} />
       </article>
       <div className="suggestions">{renderCards(props.suggestedArticles)}</div>
-      <Cta />
     </Layout>
   );
 };

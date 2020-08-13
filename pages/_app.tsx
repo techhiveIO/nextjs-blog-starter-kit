@@ -7,6 +7,7 @@ import './styles.css';
 import { trackPageView } from '../core/segment';
 import Footer from '../shared/components/footer.component';
 import Header from '../shared/components/header.component';
+import Cta from '../shared/components/cta.component';
 import { MASTHEAD_BG_COLOR, FOOTER_BG_COLOR } from '../template'
 
 Router.events.on('routeChangeComplete', url => trackPageView(url));
@@ -27,6 +28,7 @@ class MyApp extends App {
         `}</style>
         <Header />
         <Component {...pageProps} />
+        <Cta />
         <Footer />
       </React.Fragment>
     );
