@@ -21,14 +21,14 @@ export class ContentfulService {
     private mapData(entries): BlogPost[] {
         return entries.map(({sys, fields}: { sys: any; fields: any }) => ({
             id: sys.id,
-            title: fields.title,
-            description: fields.description,
-            heroImage: fields.heroImage.fields.file.url,
-            slug: fields.slug,
-            tags: fields.tags,
-            publishedAt: fields.publishDate
-                ? new Date(fields.publishDate)
-                : new Date(sys.createdAt),
+            title: fields && fields.title,
+            description: fields && fields.description,
+            heroImage: fields && fields.heroImage.fields.file.url,
+            slug: fields && fields.slug,
+            tags: fields && fields.tags,
+            publishedAt: fields && fields.publishDate
+                ? new Date(fields && fields.publishDate)
+                : new Date(fields && sys.createdAt),
         }));
     }
 

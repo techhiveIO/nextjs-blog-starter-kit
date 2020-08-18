@@ -191,7 +191,7 @@ header.post {
 
 article {
   font-size: 15px;
-  max-width: 640px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 0 20px;
   padding-bottom: 40px;
@@ -228,10 +228,11 @@ article .markdown {
 
 .markdown > p:first-child, article .post-header {
   color: white;
+  text-align: center;
 }
 
 .markdown > p:first-child a {
-  color: #A127DF;
+  color: #27dfbd;
 
 }
 
@@ -251,12 +252,28 @@ article .markdown {
 
 .markdown ul,
 ol {
-  margin: 2rem 0;
+  margin: 2rem 0 2rem 10px;
+}
+
+.markdown ol {
+  list-style: none;
+  counter-reset: my-awesome-counter;
+}
+.markdown ol li {
+  counter-increment: my-awesome-counter;
+}
+.markdown ol li::before {
+  content: counter(my-awesome-counter) ". ";
+  color: #A127DF;
+  font-weight: bold;
 }
 
 .markdown li {
   margin-bottom: 0.6rem;
+  /* list-style: disc; */
 }
+
+.markdown li::before {content: "•"; color: #A127DF; margin-right: 10px;}
 
 .markdown h2,
 .markdown h3 {
@@ -360,4 +377,23 @@ ol {
 .card__action {
   text-decoration: none;
   color: #27add5;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
 }
