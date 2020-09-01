@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import Router from 'next/router'
 import Link from 'next/link';
 import { getHref, getNavigationLink } from '../helpers/helper';
+import { title } from 'process';
 
 type Props = {
   info: {
@@ -23,7 +24,7 @@ const Card: FunctionComponent<Props> = ({ info }) => {
     <div className="card" onClick={(e) => Router.push('/' + info.slug)}>
       <div className="card__header" style={cardBGStyles} />
       <div className="card__body py-4">
-        <h3 className="card__title my-4 text-md">{info.title}</h3>
+        <h3 className="card__title my-4 text-md">{info.title.substr(0, 55)}{info.title.length > 55 && '...'}</h3>
         <p className="card__text text-sm">{info.description}</p>
       </div>
 
