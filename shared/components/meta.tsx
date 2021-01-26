@@ -1,7 +1,7 @@
-import React, { Fragment, FunctionComponent } from 'react';
 import Head from 'next/head';
-
+import React, { Fragment, FunctionComponent } from 'react';
 import { MetaTags } from '../../interfaces/meta-tags';
+
 
 type Props = {
   tags: MetaTags;
@@ -90,6 +90,18 @@ const Meta: FunctionComponent<Props> = ({ tags }) => {
 
         {/* The URL of the canonical tags */}
         <link rel="canonical" key="canonical" href={tags.canonical} />
+
+        {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105976674-6"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-105976674-6');
+          `
+        }} />
       </Head>
     </Fragment>
   );
