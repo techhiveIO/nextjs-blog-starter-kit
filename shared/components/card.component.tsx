@@ -24,8 +24,8 @@ const Card: FunctionComponent<Props> = ({ info }) => {
     <div className="card" onClick={(e) => Router.push('/' + info.slug)}>
       <div className="card__header" style={cardBGStyles} />
       <div className="card__body py-4">
-        <h3 className="card__title my-4 text-md">{info.title.substr(0, 55)}{info.title.length > 55 && '...'}</h3>
-        <p className="card__text text-sm">{info.description}</p>
+        <h3 className="card__title my-4 text-md">{info.title.substr(0, 25)}{info.title.length > 25 && '..'}</h3>
+        <p className="card__text text-sm">{info.description.substr(0, 200)}{info.description.length > 200 && '...'}</p>
       </div>
 
       <div className="card__footer">

@@ -24,7 +24,7 @@ type Props = {
 };
 
 const cards = entries =>
-  entries.map((entry, index) => <Card info={entry} key={index} />);
+  entries.map((entry, index) => entry && <Card info={entry} key={index} />);
 
 const IndexPage: NextPage = (props: Props) => {
   const router = useRouter();

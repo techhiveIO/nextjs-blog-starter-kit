@@ -19,23 +19,28 @@ export class ContentfulService {
      * @param entries
      */
     private mapData(entries): BlogPost[] {
-        return entries.map(({sys, fields}: { sys: any; fields: any }) => ({
-            id: sys.id,
-            title: fields && fields.title,
-            description: fields && fields.description,
-            heroImage: fields && fields.heroImage.fields.file.url,
-            slug: fields && fields.slug,
-            tags: fields && fields.tags,
-            publishedAt: fields && fields.publishDate
-                ? new Date(fields && fields.publishDate)
-                : new Date(fields && sys.createdAt),
-        }));
+
+        return entries.map(({sys, fields}: { sys: any; fields: any }) => {
+            if (new Date() > new Date(fields.publishDate)) {
+                return {
+                    id: sys.id,
+                    title: fields && fields.title,
+                    description: fields && fields.description,
+                    heroImage: fields && fields.heroImage.fields.file.url,
+                    slug: fields && fields.slug.toLowerCase(),
+                    tags: fields && fields.tags,
+                    publishedAt: fields && fields.publishDate
+                        ? new Date(fields && fields.publishDate)
+                        : new Date(fields && sys.createdAt)
+                }
+            }
+        })
     }
 
     async fetchPostBySlug(slug) {
         return await this.client.getEntries({
             content_type: CONTENT_TYPE_BLOGPOST,
-            'fields.slug': slug,
+            'fields.slug': slug.toLowerCase(),
         });
     }
 
@@ -87,7 +92,7 @@ export class ContentfulService {
 
     async getPostBySlug(slug) {
         try {
-            const content: any = await this.fetchPostBySlug(slug);
+            const content: any = await this.fetchPostBySlug(slug.toLowerCase());
 
             const entry: { sys: any; fields: any } = content.items[0];
 
@@ -100,7 +105,7 @@ export class ContentfulService {
 
             return {
                 id: entry.sys.id,
-                slug: entry.fields.slug,
+                slug: entry.fields.slug.toLowerCase(),
                 body: entry.fields.body,
                 title: entry.fields.title,
                 description: entry.fields.description,
@@ -126,7 +131,7 @@ export class ContentfulService {
             limit,
             // find at least one matching tag, else undefined properties are not copied
             'fields.tags.sys.id[in]': tags.length ? tags.join(',') : undefined,
-            'fields.slug[ne]': currentArticleSlug, // exclude current article
+            'fields.slug[ne]': currentArticleSlug.toLowerCase(), // exclude current article
         };
 
         try {

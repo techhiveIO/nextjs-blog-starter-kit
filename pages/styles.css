@@ -58,7 +58,8 @@ footer, footer a {
 
 
 :root {
-  --box-shadow-long: 0 50px 100px -30px rgba(0,0,0,0.5);
+  --box-shadow-long: 0 2px 16px 4px rgba(42, 47, 115, 0.2);
+  --box-shadow-medium: 0 2px 16px 4px rgba(42, 47, 115, 0.1);
 }
 
 
@@ -209,17 +210,19 @@ article h1 {
 
 article img {
   margin: 0 auto;
-  width: auto;
+  width: 100%;
   border-radius: 8px;
-  box-shadow: var(--box-shadow-long);
+  margin-top: 60px;
+  margin-bottom: 80px;
+  box-shadow: var(--box-shadow-medium);
 }
 
-article img {
+article p:nth-child(2) > img {
   margin: 0 -20%;
   max-width: 140%;
   width: 140%;
   margin-top: 40px;
-  margin-bottom: 80px;
+  box-shadow: var(--box-shadow-long);
 }
 
 article .markdown {
@@ -325,7 +328,7 @@ ol {
   flex-direction: column;
 
   background-color: #fff;
-  border-radius: 4px;
+  border-radius: 6px;
   border: 1px solid #e5e5e5;
 
   overflow: hidden;
@@ -396,4 +399,21 @@ blockquote:before {
 }
 blockquote p {
   display: inline;
+}
+
+pre, code {
+  padding: 10px;
+  background: #252A63;
+  border-radius: 5px;
+  color: #F8F8F2;
+  line-height: 30px;
+}
+
+p > code {
+  font-weight: 400;
+  font-size: .875em;
+  padding: 2px 4px 3px;
+  border-radius: 3px;
+  background: #e8e2ff;
+  color: #252A63;
 }
