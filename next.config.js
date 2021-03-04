@@ -1,6 +1,3 @@
-// next.config.js
-
-const withCSS = require('@zeit/next-css');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const { generateAllArticles } = require('./utils/helpers');
@@ -20,16 +17,16 @@ const next_config = {
 
     // Here is the magic
     // We push our config into the resolve.modules array
-    config.resolve.modules.push(path.resolve('./'))
+    config.resolve.modules.push(path.resolve('./'));
 
-    config.resolve.alias['template'] = path.join(__dirname, 'template')
+    config.resolve.alias['template'] = path.join(__dirname, 'template');
 
     return config;
   },
 
   env: {
-    'CONTENTFUL_SPACE': process.env.CONTENTFUL_SPACE,
-    'CONTENTFUL_TOKEN': process.env.CONTENTFUL_TOKEN
+    CONTENTFUL_SPACE: process.env.CONTENTFUL_SPACE,
+    CONTENTFUL_TOKEN: process.env.CONTENTFUL_TOKEN
   },
 
   exportPathMap: async () => {
@@ -55,4 +52,4 @@ const next_config = {
   }
 };
 
-module.exports = withCSS({ ...next_config });
+module.exports = next_config;
