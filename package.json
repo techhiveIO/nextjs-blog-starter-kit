@@ -58,7 +58,6 @@
     "serve": "~11.2.0"
   },
   "devDependencies": {
-    "@babel/register": "^7.13.8",
     "@tailwindcss/typography": "^0.4.0",
     "@types/node": "~12.7.8",
     "@types/react": "~16.9.4",
@@ -67,7 +66,6 @@
     "@typescript-eslint/parser": "~2.3.2",
     "all-contributors-cli": "^6.9.1",
     "autoprefixer": "^10.2.4",
-    "babel-plugin-module-resolver": "^4.0.0",
     "contentful-cli": "~1.1.1",
     "contentful-migration": "~1.0.2",
     "eslint-config-prettier": "~6.3.0",
