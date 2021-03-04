@@ -58,6 +58,7 @@
     "serve": "~11.2.0"
   },
   "devDependencies": {
+    "@babel/register": "^7.13.8",
     "@tailwindcss/typography": "^0.4.0",
     "@types/node": "~12.7.8",
     "@types/react": "~16.9.4",
