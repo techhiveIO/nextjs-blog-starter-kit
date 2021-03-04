@@ -1,14 +1,16 @@
+import '../styles/a11y-dark.css';
+import '../styles/index.css';
+import '../styles/tailwind.css';
+
+import { FOOTER_BG_COLOR, MASTHEAD_BG_COLOR } from '../template';
+
 import App from 'next/app';
-import React from 'react';
-import Router from 'next/router';
-
-import './styles.css';
-
-import { trackPageView } from '../core/segment';
+import Cta from '../shared/components/cta.component';
 import Footer from '../shared/components/footer.component';
 import Header from '../shared/components/header.component';
-import Cta from '../shared/components/cta.component';
-import { MASTHEAD_BG_COLOR, FOOTER_BG_COLOR } from '../template'
+import React from 'react';
+import Router from 'next/router';
+import { trackPageView } from '../core/segment';
 
 Router.events.on('routeChangeComplete', url => trackPageView(url));
 
@@ -19,12 +21,13 @@ class MyApp extends App {
     return (
       <React.Fragment>
         <style global jsx>{`
-        header, nav {
-          background-color: ${MASTHEAD_BG_COLOR};
-        }
-        footer {
-          background-color: ${FOOTER_BG_COLOR}
-        }
+          header,
+          nav {
+            background-color: ${MASTHEAD_BG_COLOR};
+          }
+          footer {
+            background-color: ${FOOTER_BG_COLOR};
+          }
         `}</style>
         <Header />
         <Component {...pageProps} />
