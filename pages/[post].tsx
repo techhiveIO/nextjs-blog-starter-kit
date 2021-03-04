@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { ContentfulService } from '../core/contentful';
 import { MetaTags, PageType, RobotsContent } from '../interfaces/meta-tags';
 import { BlogPost } from '../interfaces/post';
-import Card from '../shared/components/card.component';
+// import Card from '../shared/components/card.component';
 import Layout from '../shared/components/layout.component';
 import { BASE_URL } from '../template';
 
@@ -14,10 +14,10 @@ type Props = {
   suggestedArticles: BlogPost[];
 };
 
-const renderCards = suggestions =>
-  suggestions.map((suggestion, index) => (
-    <Card key={index} info={suggestion} />
-  ));
+// const renderCards = suggestions =>
+//   suggestions.map((suggestion, index) => (
+//     <Card key={index} info={suggestion} />
+//   ));
 
 const CodeBlock = ({ language, value }) => (
   <div className="mb-4 overflow-hidden rounded-lg shadow-md max-md:m-auto">
@@ -47,7 +47,7 @@ const CodeBlock = ({ language, value }) => (
   </div>
 );
 
-const PostPage: NextPage = (props: Props) => {
+const PostPage: NextPage<Props> = props => {
   if (!props.article) return <p>Not found</p>;
 
   const postMetaTags: MetaTags = {

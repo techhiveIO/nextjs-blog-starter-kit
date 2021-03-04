@@ -13,7 +13,7 @@ const calculateRange = length => Array.from({ length }, (v, k) => k + 1);
 type Props = {
   entries: BlogPost[];
   tags: { id: string; name: string }[];
-  url: any;
+  url?: any;
   total: number;
   skip: number;
   limit: number;
@@ -23,7 +23,7 @@ type Props = {
 const cards = entries =>
   entries.map((entry, index) => entry && <Card info={entry} key={index} />);
 
-const IndexPage: NextPage = (props: Props) => {
+const IndexPage: NextPage<Props> = props => {
   const router = useRouter();
   const entries = props.entries.length ? props.entries : [];
   const tags = props.tags || [];
