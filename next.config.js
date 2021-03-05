@@ -1,19 +1,9 @@
 const path = require('path');
-const Dotenv = require('dotenv-webpack');
 const { generateAllArticles } = require('./utils/helpers');
 
 const next_config = {
   webpack: config => {
     config.plugins = config.plugins || [];
-
-    config.plugins = [
-      ...config.plugins,
-      // Read the .env file
-      new Dotenv({
-        path: path.join(__dirname, '.env'),
-        systemvars: true
-      })
-    ];
 
     // Here is the magic
     // We push our config into the resolve.modules array
