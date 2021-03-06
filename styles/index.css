@@ -1,4 +1,18 @@
-@tailwind base;
+@font-face {
+  font-family: 'basier_circle';
+  src: url('/fonts/basier_circle_regular-webfont.woff2') format('woff2'),
+    url('/fonts/basier_circle_regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'basier_circle';
+  src: url('/fonts/basier_circle_medium-webfont.woff2') format('woff2'),
+    url('/fonts/basier_circle_medium-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
 
 h1 {
   @apply text-4xl;
@@ -8,14 +22,16 @@ h4 {
   @apply font-bold;
 }
 
-@tailwind components;
-@tailwind utilities;
-
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 html,
 body {
-  font-family: 'Roboto', sans-serif;
+  @apply antialiased text-gray-800 font-basier-circle;
 }
+
+a {
+  @apply transition duration-150 ease-in-out;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -46,7 +62,8 @@ nav {
   }
 }
 
-footer, footer a {
+footer,
+footer a {
   color: white;
 }
 
@@ -56,39 +73,24 @@ footer, footer a {
   }
 }
 
-
 :root {
   --box-shadow-long: 0 2px 16px 4px rgba(42, 47, 115, 0.2);
   --box-shadow-medium: 0 2px 16px 4px rgba(42, 47, 115, 0.1);
 }
 
-
 header {
   text-align: center;
-  color: #FFF;
-  padding-top: 100px;
+  color: #fff;
+  padding-top: 60px;
   min-height: 350px;
 }
 
 @media (max-width: 768px) {
   header {
-    padding: 50px 20px;
+    padding: 30px 20px;
     min-height: 0;
   }
 }
-
-
-header h1 {
-  margin-bottom: 0px;
-}
-
-header h2 {
-  margin-bottom: 3rem;
-  font-size: 18px;
-  font-weight: normal;
-  color: rgb(223, 230, 244);
-}
-
 
 /** Home */
 
@@ -144,7 +146,7 @@ header h2 {
 .grid-container .cards-deck {
   display: grid;
   grid-template-columns: repeat(auto-fill, 100%);
-  grid-auto-rows: 450px;
+  grid-auto-rows: 410px;
 
   grid-gap: 20px;
 }
@@ -161,17 +163,12 @@ header h2 {
 
 @media (min-width: 991px) {
   .grid-container {
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto 33rem auto;
   }
 }
 
 @media (min-width: 1200px) {
-  .grid-container {
-    grid-template-rows: auto 8rem auto;
-
-    margin: 0 3rem;
-  }
-
   .grid-container .sidenav {
     display: block;
 
@@ -183,11 +180,10 @@ header h2 {
   }
 }
 
-
 /** Post */
 
 header.post {
-  min-height: 550px;
+  min-height: 500px;
 }
 
 article {
@@ -221,22 +217,37 @@ article p:nth-child(2) > img {
   margin: 0 -20%;
   max-width: 140%;
   width: 140%;
-  margin-top: 40px;
+  margin-top: 60px;
   box-shadow: var(--box-shadow-long);
 }
 
 article .markdown {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.markdown > p:first-child, article .post-header {
+.markdown > p:first-child,
+article .post-header {
   color: white;
   text-align: center;
+  font-weight: 600;
+  margin-top: -20px;
+}
+
+@media (max-width: 500px) {
+  .markdown > p:first-child,
+  article .post-header {
+    max-height: 290px;
+  }
+  article p:nth-child(2) > img {
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .markdown > p:first-child a {
   color: #27dfbd;
-
 }
 
 .markdown p,
@@ -249,13 +260,13 @@ article .markdown {
   letter-spacing: 0.01rem;
 }
 
-.markdown pre {
+/* .markdown pre {
   margin: 3rem 0;
-}
+} */
 
 .markdown ul,
 ol {
-  margin: 2rem 0 2rem 10px;
+  margin: 1.5rem 0 1.5rem 10px;
 }
 
 .markdown ol {
@@ -266,28 +277,37 @@ ol {
   counter-increment: my-awesome-counter;
 }
 .markdown ol li::before {
-  content: counter(my-awesome-counter) ". ";
-  color: #A127DF;
+  content: counter(my-awesome-counter) '. ';
+  color: #a127df;
   font-weight: bold;
 }
 
 .markdown li {
-  margin-bottom: 0.6rem;
-  /* list-style: disc; */
+  margin-bottom: 0.5rem;
 }
 
-.markdown li::before {content: "•"; color: #A127DF; margin-right: 10px;}
+.markdown li::before {
+  content: '•';
+  color: #a127df;
+  margin-right: 10px;
+}
 
 .markdown h2,
-.markdown h3 {
-  margin: 4rem 0 1.5rem;
-
-  font-weight: normal;
+.markdown h3,
+.markdown h4 {
+  margin: 3rem 0 0.75rem;
+  font-weight: 700;
   font-size: 1.5rem;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+.markdown h4 {
+  font-weight: 500;
 }
 
 .markdown a {
+  color: #080b4b;
+  font-weight: 500;
   transition: color 0.2s;
 }
 
@@ -310,10 +330,6 @@ ol {
 }
 
 @media (max-width: 768px) {
-  header.post {
-    min-height: 700px;
-  }
-
   article img {
     margin: 0 auto;
     max-width: 80%;
@@ -326,19 +342,24 @@ ol {
 .card {
   display: flex;
   flex-direction: column;
-
   background-color: #fff;
-  border-radius: 6px;
-  border: 1px solid #e5e5e5;
-
+  border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
 
   transition: box-shadow 0.2s;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease-out, transform 0.3s ease-out,
+    opacity 0.1s ease-out;
 }
 
 .card:hover {
   box-shadow: 0 2px 50px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: rgba(45, 45, 45, 0.05) 0px 2px 2px,
+    rgba(49, 49, 49, 0.05) 0px 4px 4px, rgba(42, 42, 42, 0.05) 0px 8px 8px,
+    rgba(32, 32, 32, 0.05) 0px 16px 16px, rgba(49, 49, 49, 0.05) 0px 32px 32px,
+    rgba(35, 35, 35, 0.05) 0px 64px 64px;
+  transform: translate(0, -4px);
 }
 
 .card__header {
@@ -350,27 +371,26 @@ ol {
 }
 
 .card__body {
-  flex-basis: 40%;
+  display: flex;
+  flex-direction: column;
   flex-shrink: 0.8;
 
   padding: 0.25rem 1rem;
 }
 
 .card__footer {
-  flex-basis: 8%;
-
+  width: 100%;
   padding: 1rem 1rem;
 }
 
 .card__title {
-  font-size: 21px;
-  font-weight: normal;
+  font-size: 20px;
   color: #12284c;
 }
 
 .card__text {
   margin: 0;
-  
+
   line-height: 1.5;
   color: #12284c;
 
@@ -379,7 +399,7 @@ ol {
 
 .card__action {
   text-decoration: none;
-  color: #27add5;
+  font-weight: 500;
 }
 
 blockquote {
@@ -387,7 +407,7 @@ blockquote {
   border-left: 10px solid #ccc;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
+  quotes: '\201C''\201D''\2018''\2019';
 }
 blockquote:before {
   color: #ccc;
@@ -401,19 +421,19 @@ blockquote p {
   display: inline;
 }
 
-pre, code {
+pre,
+code {
   padding: 10px;
-  background: #252A63;
-  border-radius: 5px;
-  color: #F8F8F2;
+  background: #252a63;
+  color: #f8f8f2;
   line-height: 30px;
 }
 
 p > code {
   font-weight: 400;
-  font-size: .875em;
+  font-size: 0.875em;
   padding: 2px 4px 3px;
   border-radius: 3px;
   background: #e8e2ff;
-  color: #252A63;
+  color: #252a63;
 }

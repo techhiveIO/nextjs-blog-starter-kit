@@ -1,8 +1,5 @@
-import React, { FunctionComponent } from 'react';
-import Router from 'next/router'
 import Link from 'next/link';
-import { getHref, getNavigationLink } from '../helpers/helper';
-import { title } from 'process';
+import React, { FunctionComponent } from 'react';
 
 type Props = {
   info: {
@@ -21,19 +18,30 @@ const Card: FunctionComponent<Props> = ({ info }) => {
   };
 
   return (
-    <div className="card" onClick={(e) => Router.push('/' + info.slug)}>
-      <div className="card__header" style={cardBGStyles} />
-      <div className="card__body py-4">
-        <h3 className="card__title my-4 text-md">{info.title.substr(0, 25)}{info.title.length > 25 && '..'}</h3>
-        <p className="card__text text-sm">{info.description.substr(0, 200)}{info.description.length > 200 && '...'}</p>
-      </div>
+    <Link href={`/${info.slug}`}>
+      <a className="mx-4 ease-in-out transform card hover:no-underline sm:mx-0 ">
+        <div className="card__header" style={cardBGStyles} />
+        <div className="py-4 card__body">
+          <h3 className="my-2 font-bold card__title text-md">
+            {info.title.substr(0, 25)}
+            {info.title.length > 25 && '..'}
+          </h3>
+          <p className="text-sm card__text">
+            {info.description.substr(0, 200)}
+            {info.description.length > 200 && '...'}
+          </p>
+        </div>
 
-      <div className="card__footer">
-        <Link href="[post]" as={`/${info.slug}`}>
-          <a className="card__action">Explore</a>
-        </Link>
-      </div>
-    </div>
+        <div className="card__footer">
+          <a
+            href=""
+            className="text-base font-semibold text-ui-400 hover:no-underline hover:text-ui-300 card__action"
+          >
+            Read full story
+          </a>
+        </div>
+      </a>
+    </Link>
   );
 };
 
