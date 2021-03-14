@@ -45,7 +45,7 @@ const Meta: FunctionComponent<Props> = ({ tags }) => {
         {/* End of OpenGraph Tag */}
 
         {/*Twitter displayed card*/}
-        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:card" content="summary_large_image" />
 
         {/*this will define the description of the post*/}
         {tags.description ? (
