@@ -26,9 +26,9 @@ const Card: FunctionComponent<Props> = ({ info }) => {
             {info.title.substr(0, 25)}
             {info.title.length > 25 && '..'}
           </h3>
-          <p className="text-sm card__text">
-            {info.description.substr(0, 200)}
-            {info.description.length > 200 && '...'}
+          <p className="text-sm card__text h-24">
+            {info.description.substr(0, 190)}
+            {info.description.length > 190 && '...'}
           </p>
         </div>
 
