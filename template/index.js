@@ -19,6 +19,12 @@ export const CTA_BUTTON_LINK = 'https://app.apideck.com/signup'
 
 export const NAV_LINKS = [
   {
+    'id': 'docs',
+    'href': 'https://developers.apideck.com/',
+    'label': 'Developer Docs',
+    'className': 'ml-4'
+  },
+  {
     'id': 'unify',
     'href': 'https://www.apideck.com/products/unify',
     'label': 'Unify'
