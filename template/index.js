@@ -21,13 +21,13 @@ export const NAV_LINKS = [
   {
     'id': 'docs',
     'href': 'https://developers.apideck.com/',
-    'label': 'Developer Docs',
-    'className': 'ml-4'
+    'label': 'Developer Docs'
   },
   {
     'id': 'unify',
     'href': 'https://www.apideck.com/products/unify',
-    'label': 'Unify'
+    'label': 'Unify',
+    'className': 'ml-4'
   },
   {
     'id': 'ecosystem',
