@@ -67,7 +67,7 @@ const PostPage: NextPage<Props> = props => {
           {props.article.title}
         </h1>
         <div className="author">
-          <p className="text-lg">Written by <a href={props.article.author?.twitter?.includes('twitter.com') ? props.article.author.twitter : 'https://twitter.com/' + props.article.author.twitter} target='_blank'>{props.article.author.name}</a></p>
+          <p className="text-lg">Written by {props.article.author.name}</p>
         </div>
       </header>
       <article>
