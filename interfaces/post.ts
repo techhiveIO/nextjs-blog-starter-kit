@@ -14,6 +14,7 @@ export type BlogPost = {
     title: string;
     company: string;
     shortBio: string;
+    twitter: string;
   };
   publishedAt: Date;
 };
