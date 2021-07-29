@@ -92,6 +92,10 @@ header {
   }
 }
 
+table {
+  margin-bottom: 80px;
+}
+
 /** Home */
 
 .container {
@@ -208,9 +212,12 @@ article img {
   margin: 0 auto;
   width: 100%;
   border-radius: 8px;
-  margin-top: 60px;
-  margin-bottom: 80px;
+  margin-top: 30px;
   box-shadow: var(--box-shadow-medium);
+}
+
+article > img {
+  margin-bottom: 80px;
 }
 
 article p:nth-child(2) > img {
@@ -218,6 +225,7 @@ article p:nth-child(2) > img {
   max-width: 140%;
   width: 140%;
   margin-top: 60px;
+  margin-bottom: 60px;
   box-shadow: var(--box-shadow-long);
 }
 
