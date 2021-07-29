@@ -220,6 +220,11 @@ article > img {
   margin-bottom: 80px;
 }
 
+
+article thead img {
+  margin-bottom: 15px;
+}
+
 article p:nth-child(2) > img {
   margin: 0 -20%;
   max-width: 140%;
