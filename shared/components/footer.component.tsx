@@ -1,13 +1,13 @@
+import classNames from 'classnames';
 import React, { FunctionComponent } from 'react';
-import classNames from 'classnames'
-import { COPYRIGHT_NAME, FOOTER_LINKS } from '../../template'
+import { COPYRIGHT_NAME, FOOTER_LINKS } from '../../template';
 declare const window: any;
 
 type Props = {};
 const Footer: FunctionComponent<Props> = ({}) => {
   const handleClickManageCookies = (e) => {
     e.preventDefault()
-    window.Metomic('ConsentManager:show')
+    window.Confirmic('ConsentManager:show')
   }
 
   return (
