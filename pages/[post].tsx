@@ -79,13 +79,9 @@ const PostPage: NextPage<Props> = props => {
             a: ({ node, ...props }: any) => {
               const isYouTubeLink = props.href.includes('youtube');
 
-              return (
-                <a
-                  {...props}
-                  className={isYouTubeLink ? 'embedly-card' : ''}
-                  data-card-embed={isYouTubeLink}
-                />
-              );
+              if (!isYouTubeLink) return 'a';
+
+              return <a {...props} className="embedly-card" data-card-embed />;
             },
             code: ({ node, ...props }: any) => {
               return <CodeBlock {...props} />;
