@@ -20,8 +20,7 @@ type Props = {
 //     <Card key={index} info={suggestion} />
 //   ));
 
-const CodeBlock = (props) => {
-  console.log('props', props);
+const CodeBlock = ({ children }) => {
   return (
     <div className="mb-4 overflow-hidden rounded-lg shadow-md max-md:m-auto">
       <div className="flex items-center justify-between bg-ui-800">
@@ -39,18 +38,15 @@ const CodeBlock = (props) => {
             style={{ backgroundColor: '#34C749' }}
           />
         </div>
-        <div className="px-1 mr-4 text-xs font-medium bg-white rounded-md text-ui-500">
-          {props?.className}
-        </div>
+        <div className="px-1 mr-4 text-xs font-medium bg-white rounded-md text-ui-500"></div>
       </div>
 
       <Highlight language={'json'} className="px-6 py-4 text-sm bg-ui-600">
-        {props?.children}
+        {children}
       </Highlight>
     </div>
   );
-}
-
+};
 
 const PostPage: NextPage<Props> = props => {
   if (!props.article) return <p>Not found</p>;
