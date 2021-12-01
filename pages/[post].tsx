@@ -1,16 +1,13 @@
+import { MetaTags, PageType, RobotsContent } from '../interfaces/meta-tags';
+
+import { BASE_URL } from '../template';
+import { BlogPost } from '../interfaces/post';
+import Card from '../shared/components/card.component';
+import { ContentfulService } from '../core/contentful';
+import Layout from '../shared/components/layout.component';
 import { NextPage } from 'next';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import Error from './_error';
-
-import Cta from '../shared/components/cta.component';
-import Layout from '../shared/components/layout.component';
-import { ContentfulService } from '../core/contentful';
-
-import { BlogPost } from '../interfaces/post';
-import { MetaTags, PageType, RobotsContent } from '../interfaces/meta-tags';
-import Card from '../shared/components/card.component';
-import { BASE_URL } from '../template';
 
 type Props = {
   article: BlogPost;
@@ -23,7 +20,7 @@ const renderCards = suggestions =>
   ));
 
 const PostPage: NextPage = (props: Props) => {
-  if (!props.article) return <p>Not found</p>
+  if (!props.article) return <p>Not found</p>;
 
   const postMetaTags: MetaTags = {
     canonical: BASE_URL + props.article.slug,
@@ -37,14 +34,30 @@ const PostPage: NextPage = (props: Props) => {
 
   return (
     <Layout metaTags={postMetaTags}>
-      <header className='post'>
-      <h1 className='md:text-4xl sm:text-xl'>{props.article.title}</h1>
-          <div className="author">
-            <p>Written by {props.article.author.name}</p>
-          </div>
+      <header className="post">
+        <h1 className="md:text-4xl sm:text-xl">{props.article.title}</h1>
+        <div className="author">
+          <p>Written by {props.article.author.name}</p>
+        </div>
       </header>
       <article>
-        <ReactMarkdown className="markdown" source={props.article.body} />
+        <ReactMarkdown
+          className="markdown"
+          children={props.article.body}
+          components={{
+            a: ({ node, ...props }: any) => {
+              const isYouTubeLink = props.href.includes('youtube');
+
+              return (
+                <a
+                  {...props}
+                  className={isYouTubeLink ? 'embedly-card' : ''}
+                  data-card-embed={isYouTubeLink}
+                />
+              );
+            }
+          }}
+        />
       </article>
       {/* <div className="suggestions">{renderCards(props.suggestedArticles)}</div> */}
     </Layout>
@@ -53,7 +66,7 @@ const PostPage: NextPage = (props: Props) => {
 
 PostPage.getInitialProps = async ({ query, res }) => {
   const contentfulService = new ContentfulService();
-  let suggestedArticles = []
+  let suggestedArticles = [];
 
   const { post } = query;
   const article = await contentfulService.getPostBySlug(post);

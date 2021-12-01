@@ -2,7 +2,6 @@ import Head from 'next/head';
 import React, { Fragment, FunctionComponent } from 'react';
 import { MetaTags } from '../../interfaces/meta-tags';
 
-
 type Props = {
   tags: MetaTags;
 };
@@ -92,23 +91,33 @@ const Meta: FunctionComponent<Props> = ({ tags }) => {
         <link rel="canonical" key="canonical" href={tags.canonical} />
 
         {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105976674-6"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-105976674-6"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
             gtag('config', 'UA-105976674-6');
           `
-        }} />
+          }}
+        />
+
+        <script
+          async
+          src="//cdn.embedly.com/widgets/platform.js"
+          charSet="UTF-8"
+        ></script>
       </Head>
     </Fragment>
   );
 };
 
 export default Meta;
-
 
 // <script type="application/ld+json">
 //         {
@@ -132,7 +141,7 @@ export default Meta;
 //                             ,
 //             "width": 1200,
 //                     "height": 628
-        
+
 //         },
 //         "publisher": {
 //             "@type": "Organization",

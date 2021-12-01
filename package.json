@@ -54,7 +54,7 @@
     "next": "~9.0.7",
     "react": "~16.10.1",
     "react-dom": "~16.10.1",
-    "react-markdown": "~4.2.2",
+    "react-markdown": "6.0.0",
     "serve": "~11.2.0"
   },
   "devDependencies": {
