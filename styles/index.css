@@ -220,7 +220,6 @@ article > img {
   margin-bottom: 80px;
 }
 
-
 article thead img {
   margin-bottom: 15px;
 }
@@ -451,6 +450,14 @@ pre,
 code {
   padding: 10px;
   background: #252a63;
+  color: #f8f8f2;
+  line-height: 30px;
+}
+
+pre {
+  padding: 0px;
+  background: #252a63;
+  border-radius: 5px;
   color: #f8f8f2;
   line-height: 30px;
 }

@@ -1,13 +1,14 @@
+import { MetaTags, PageType, RobotsContent } from '../interfaces/meta-tags';
+
+import { BASE_URL } from '../template';
+import { BlogPost } from '../interfaces/post';
+import Card from '../shared/components/card.component';
+import { ContentfulService } from '../core/contentful';
+import Highlight from 'react-highlight';
+import Layout from '../shared/components/layout.component';
 import { NextPage } from 'next';
 import React from 'react';
-import Highlight from 'react-highlight';
 import ReactMarkdown from 'react-markdown';
-import { ContentfulService } from '../core/contentful';
-import { MetaTags, PageType, RobotsContent } from '../interfaces/meta-tags';
-import { BlogPost } from '../interfaces/post';
-// import Card from '../shared/components/card.component';
-import Layout from '../shared/components/layout.component';
-import { BASE_URL } from '../template';
 
 type Props = {
   article: BlogPost;
@@ -19,33 +20,33 @@ type Props = {
 //     <Card key={index} info={suggestion} />
 //   ));
 
-const CodeBlock = ({ language, value }) => (
-  <div className="mb-4 overflow-hidden rounded-lg shadow-md max-md:m-auto">
-    <div className="flex items-center justify-between bg-ui-800">
-      <div className="flex items-center px-6 py-3">
-        <div
-          className="w-3 h-3 mr-1 rounded-full"
-          style={{ backgroundColor: '#FC605C' }}
-        />
-        <div
-          className="w-3 h-3 mr-1 rounded-full"
-          style={{ backgroundColor: '#FDBC40' }}
-        />
-        <div
-          className="w-3 h-3 mr-4 rounded-full"
-          style={{ backgroundColor: '#34C749' }}
-        />
+const CodeBlock = ({ children }) => {
+  return (
+    <div className="mb-4 overflow-hidden rounded-lg shadow-md max-md:m-auto">
+      <div className="flex items-center justify-between bg-ui-800">
+        <div className="flex items-center px-6 py-3">
+          <div
+            className="w-3 h-3 mr-1 rounded-full"
+            style={{ backgroundColor: '#FC605C' }}
+          />
+          <div
+            className="w-3 h-3 mr-1 rounded-full"
+            style={{ backgroundColor: '#FDBC40' }}
+          />
+          <div
+            className="w-3 h-3 mr-4 rounded-full"
+            style={{ backgroundColor: '#34C749' }}
+          />
+        </div>
+        <div className="px-1 mr-4 text-xs font-medium bg-white rounded-md text-ui-500"></div>
       </div>
-      <div className="px-1 mr-4 text-xs font-medium bg-white rounded-md text-ui-500">
-        {language}
-      </div>
-    </div>
 
-    <Highlight language={'json'} className="px-6 py-4 text-sm bg-ui-600">
-      {value}
-    </Highlight>
-  </div>
-);
+      <Highlight language={'json'} className="px-6 py-4 text-sm bg-ui-600">
+        {children}
+      </Highlight>
+    </div>
+  );
+};
 
 const PostPage: NextPage<Props> = props => {
   if (!props.article) return <p>Not found</p>;
@@ -73,8 +74,19 @@ const PostPage: NextPage<Props> = props => {
       <article>
         <ReactMarkdown
           className="markdown"
-          source={props.article.body}
-          renderers={{ code: CodeBlock }}
+          children={props.article.body}
+          components={{
+            a: ({ node, ...props }: any) => {
+              const isYouTubeLink = props.href.includes('youtube');
+
+              if (!isYouTubeLink) return 'a';
+
+              return <a {...props} className="embedly-card" data-card-embed />;
+            },
+            code: ({ node, ...props }: any) => {
+              return <CodeBlock {...props} />;
+            }
+          }}
         />
       </article>
       {/* <div className="suggestions">{renderCards(props.suggestedArticles)}</div> */}
