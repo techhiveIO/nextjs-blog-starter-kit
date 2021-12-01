@@ -1,8 +1,7 @@
-import { LOGO, NAV_LINKS } from '../../template';
-import React, { FunctionComponent } from 'react';
-
-import Link from 'next/link';
 import classNames from 'classnames';
+import Link from 'next/link';
+import React, { FunctionComponent } from 'react';
+import { LOGO, NAV_LINKS } from '../../template';
 
 type Props = {};
 const Header: FunctionComponent<Props> = ({}) => {
@@ -29,7 +28,7 @@ const Header: FunctionComponent<Props> = ({}) => {
                 href={item.href}
                 key={item.href}
                 className={classNames(
-                  'inline-block px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0',
+                  'inline-block px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 hover:text-ui-800 hover:no-underline',
                   item.className
                 )}
               >

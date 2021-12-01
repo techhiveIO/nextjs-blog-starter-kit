@@ -101,6 +101,7 @@ export class ContentfulService {
                 title: entry.fields.author.fields.title,
                 company: entry.fields.author.fields.company,
                 shortBio: entry.fields.author.fields.shortBio,
+                twitter: entry.fields.author.fields.twitter,
             };
 
             return {

@@ -44,9 +44,7 @@ const Meta: FunctionComponent<Props> = ({ tags }) => {
         {/* End of OpenGraph Tag */}
 
         {/*Twitter displayed card*/}
-        {tags.twitter_site ? (
-          <meta name="twitter:card" key="twitter_card" content="summary" />
-        ) : null}
+        <meta name="twitter:card" content="summary_large_image" />
 
         {/*this will define the description of the post*/}
         {tags.description ? (
@@ -104,9 +102,21 @@ const Meta: FunctionComponent<Props> = ({ tags }) => {
 
             gtag('config', 'UA-105976674-6');
           `
+        }} />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function (d, u, h, s) {
+              h = d.getElementsByTagName('head')[0];
+              s = d.createElement('script');
+              s.async = 1;
+              s.src = u + new Date().getTime();
+              h.appendChild(s);
+              })(document, 'https://grow.clearbitjs.com/api/pixel.js?k=pk_bf733a77257a603226947567cb0af7be&v=');
+            `
           }}
         />
-
         <script
           async
           src="//cdn.embedly.com/widgets/platform.js"

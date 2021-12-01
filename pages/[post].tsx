@@ -4,6 +4,7 @@ import { BASE_URL } from '../template';
 import { BlogPost } from '../interfaces/post';
 import Card from '../shared/components/card.component';
 import { ContentfulService } from '../core/contentful';
+import Highlight from 'react-highlight';
 import Layout from '../shared/components/layout.component';
 import { NextPage } from 'next';
 import React from 'react';
@@ -14,12 +15,44 @@ type Props = {
   suggestedArticles: BlogPost[];
 };
 
-const renderCards = suggestions =>
-  suggestions.map((suggestion, index) => (
-    <Card key={index} info={suggestion} />
-  ));
+// const renderCards = suggestions =>
+//   suggestions.map((suggestion, index) => (
+//     <Card key={index} info={suggestion} />
+//   ));
 
-const PostPage: NextPage = (props: Props) => {
+const CodeBlock = (props) => {
+  console.log('props', props);
+  return (
+    <div className="mb-4 overflow-hidden rounded-lg shadow-md max-md:m-auto">
+      <div className="flex items-center justify-between bg-ui-800">
+        <div className="flex items-center px-6 py-3">
+          <div
+            className="w-3 h-3 mr-1 rounded-full"
+            style={{ backgroundColor: '#FC605C' }}
+          />
+          <div
+            className="w-3 h-3 mr-1 rounded-full"
+            style={{ backgroundColor: '#FDBC40' }}
+          />
+          <div
+            className="w-3 h-3 mr-4 rounded-full"
+            style={{ backgroundColor: '#34C749' }}
+          />
+        </div>
+        <div className="px-1 mr-4 text-xs font-medium bg-white rounded-md text-ui-500">
+          {props?.className}
+        </div>
+      </div>
+
+      <Highlight language={'json'} className="px-6 py-4 text-sm bg-ui-600">
+        {props?.children}
+      </Highlight>
+    </div>
+  );
+}
+
+
+const PostPage: NextPage<Props> = props => {
   if (!props.article) return <p>Not found</p>;
 
   const postMetaTags: MetaTags = {
@@ -35,9 +68,11 @@ const PostPage: NextPage = (props: Props) => {
   return (
     <Layout metaTags={postMetaTags}>
       <header className="post">
-        <h1 className="md:text-4xl sm:text-xl">{props.article.title}</h1>
+        <h1 className="mb-2 text-xl font-bold md:text-4xl">
+          {props.article.title}
+        </h1>
         <div className="author">
-          <p>Written by {props.article.author.name}</p>
+          <p className="text-lg">Written by {props.article.author.name}</p>
         </div>
       </header>
       <article>
@@ -55,6 +90,9 @@ const PostPage: NextPage = (props: Props) => {
                   data-card-embed={isYouTubeLink}
                 />
               );
+            },
+            code: ({ node, ...props }: any) => {
+              return <CodeBlock {...props} />;
             }
           }}
         />

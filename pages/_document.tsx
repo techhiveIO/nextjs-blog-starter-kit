@@ -44,9 +44,9 @@ export default class extends Document<Props> {
           <script src="https://consent-manager.metomic.io/embed.js" />
 
           {/* {isProduction && ( */}
-            <script
+            {SEGMENT_API_KEY && <script
               dangerouslySetInnerHTML={{ __html: this.renderSegmentSnippet() }}
-            />
+            />}
           {/* )} */}
         </Head>
         <body>

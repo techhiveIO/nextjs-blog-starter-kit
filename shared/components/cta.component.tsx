@@ -1,18 +1,20 @@
 import {
-  MASTHEAD_BG_COLOR,
-  PRIMARY_COLOR,
-  CTA_TITLE,
-  CTA_DESCRIPTION,
   CTA_BUTTON_LABEL,
-  CTA_BUTTON_LINK
-} from '../../template'
+  CTA_BUTTON_LINK,
+  CTA_DESCRIPTION,
+  CTA_TITLE,
+  MASTHEAD_BG_COLOR
+} from '../../template';
 
 const Cta = () => (
-  <div className='wrapper cta text-center'>
+  <div className="text-center wrapper cta">
     <Container>
       <h5>{CTA_TITLE}</h5>
-      {CTA_DESCRIPTION && <p className='pb-4'>{CTA_DESCRIPTION}</p>}
-      <a href={CTA_BUTTON_LINK} className='inline-block px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0'>
+      {CTA_DESCRIPTION && <p className="pb-4">{CTA_DESCRIPTION}</p>}
+      <a
+        href={CTA_BUTTON_LINK}
+        className="inline-block px-4 py-2 mt-4 leading-none text-white border border-white rounded hover:border-transparent hover:no-underline hover:text-ui-800 hover:text-teal-500 hover:bg-white lg:mt-0"
+      >
         {CTA_BUTTON_LABEL}
       </a>
     </Container>
@@ -38,12 +40,8 @@ const Cta = () => (
       }
     `}</style>
   </div>
-)
+);
 
-const Container = ({ children }) => (
-  <div className='container'>
-    {children}
-  </div>
-)
+const Container = ({ children }) => <div className="container">{children}</div>;
 
-export default Cta
+export default Cta;

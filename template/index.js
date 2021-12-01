@@ -1,78 +1,96 @@
-export const SITE_NAME = 'Apideck Blog'
-export const COPYRIGHT_NAME = 'Apideck'
-export const BASE_URL = 'https://blog.apideck.com/'
-export const FAVICON = 'https://res.cloudinary.com/apideck/image/upload/v1588464645/blog/favicon.png'
-export const LOGO = 'https://res.cloudinary.com/apideck/image/upload/v1588464645/blog/logo.svg'
-export const OG_IMAGE = 'https://res.cloudinary.com/apideck/image/upload/v1588464645/blog/social.jpg'
-export const OG_DESCRIPTION = 'Stay up to date with the latest Apideck news. Get the latest industry insights and trends about building successful SaaS ecosystems, platforms, partnerships, integrations & APIs.'
-export const TWITTER_HANDLE = 'apideck'
-export const TWITTER_URL = 'https://www.twitter.com/' + TWITTER_HANDLE
-export const MASTHEAD_BG_COLOR = '#080b4b'
-export const FOOTER_BG_COLOR = '#080A2D'
-export const PRIMARY_COLOR = ''
-export const METOMIC_PROJECT_ID = '97d085e6-af9d-4990-8fa2-6fbd04940e49'
-export const SEGMENT_API_KEY = ''
-export const CTA_TITLE = 'Ready to get started?'
-export const CTA_DESCRIPTION = 'Start building your ecosystem in less than 5 minutes'
-export const CTA_BUTTON_LABEL = 'Sign up'
-export const CTA_BUTTON_LINK = 'https://app.apideck.com/signup'
+export const SITE_NAME = 'Apideck Blog';
+export const COPYRIGHT_NAME = 'Apideck';
+export const BASE_URL = 'https://blog.apideck.com/';
+export const FAVICON =
+  'https://res.cloudinary.com/apideck/image/upload/v1588464645/blog/favicon.png';
+export const LOGO =
+  'https://res.cloudinary.com/apideck/image/upload/v1588464645/blog/logo.svg';
+export const OG_IMAGE =
+  'https://res.cloudinary.com/apideck/image/upload/v1588464645/blog/social.jpg';
+export const OG_DESCRIPTION =
+  'Stay up to date with the latest Apideck news. Get the latest industry insights and trends about building successful SaaS ecosystems, platforms, partnerships, integrations & APIs.';
+export const TWITTER_HANDLE = 'apideck';
+export const TWITTER_URL = 'https://www.twitter.com/' + TWITTER_HANDLE;
+export const MASTHEAD_BG_COLOR = '#080b4b';
+export const FOOTER_BG_COLOR = '#080A2D';
+export const PRIMARY_COLOR = '';
+export const METOMIC_PROJECT_ID = '97d085e6-af9d-4990-8fa2-6fbd04940e49';
+export const SEGMENT_API_KEY = '';
+export const CTA_TITLE = 'Ready to get started?';
+export const CTA_DESCRIPTION =
+  'Start building your ecosystem in less than 5 minutes';
+export const CTA_BUTTON_LABEL = 'Sign up';
+export const CTA_BUTTON_LINK = 'https://app.apideck.com/signup';
 
 export const NAV_LINKS = [
   {
-    'id': 'unify',
-    'href': 'https://www.apideck.com/products/unify',
-    'label': 'Unify'
+    id: 'home',
+    href: 'https://www.apideck.com/',
+    label: 'Home'
   },
   {
-    'id': 'ecosystem',
-    'href': 'https://www.apideck.com/products/ecosystem',
-    'label': 'Ecosystem',
-    'className': 'ml-4'
+    id: 'docs',
+    href: 'https://developers.apideck.com/',
+    label: 'Developer Docs',
+    className: 'ml-4'
   },
   {
-    'id': 'pricing',
-    'href': 'https://www.apideck.com/pricing',
-    'label': 'Pricing',
-    'className': 'ml-4'
+    id: 'unify',
+    href: 'https://www.apideck.com/products/unify',
+    label: 'Unify',
+    className: 'ml-4'
   },
   {
-    'id': 'integrations',
-    'href': 'https://integrations.apideck.com',
-    'label': 'Integrations',
-    'className': 'ml-4'
+    id: 'ecosystem',
+    href: 'https://www.apideck.com/products/ecosystem',
+    label: 'Ecosystem',
+    className: 'ml-4'
   },
   {
-    'id': 'login',
-    'href': 'https://app.apideck.com/login',
-    'label': 'Login',
-    'className': 'ml-4'
+    id: 'pricing',
+    href: 'https://www.apideck.com/pricing',
+    label: 'Pricing',
+    className: 'ml-4'
   },
   {
-    'id': 'sign-up',
-    'href': 'https://app.apideck.com/signup',
-    'label': 'Sign up',
-    'type': 'button',
-    'className': 'ml-4'
+    id: 'connectors',
+    href: 'https://developers.apideck.com/connectors',
+    label: 'Connectors',
+    className: 'ml-4'
+  },
+  {
+    id: 'login',
+    href: 'https://app.apideck.com/login',
+    label: 'Login',
+    className: 'ml-4'
+  },
+  {
+    id: 'sign-up',
+    href: 'https://app.apideck.com/signup',
+    label: 'Sign up',
+    type: 'button',
+    className: 'ml-4'
   }
-]
+];
 
 export const FOOTER_LINKS = [
   {
-    'id': 'terms',
-    'href': 'https://termsfeed.com/terms-conditions/957c85c1b089ae9e3219c83eff65377e',
-    'label': 'Terms'
+    id: 'terms',
+    href:
+      'https://termsfeed.com/terms-conditions/957c85c1b089ae9e3219c83eff65377e',
+    label: 'Terms'
   },
   {
-    'id': 'privacy-policy',
-    'href': 'https://compliance.apideck.com/privacy-policy',
-    'label': 'Privacy Policy',
+    id: 'privacy-policy',
+    href: 'https://compliance.apideck.com/privacy-policy',
+    label: 'Privacy Policy'
   },
   {
-    'id': 'data-requests',
-    'href': 'https://apideck.gdprform.io/en',
-    'label': 'Data Requests'
+    id: 'data-requests',
+    href: 'https://apideck.gdprform.io/en',
+    label: 'Data Requests'
   }
-]
+];
 
 // export const META_THEME_COLOR = PRIMARY_COLOR
 

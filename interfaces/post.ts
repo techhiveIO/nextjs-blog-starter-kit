@@ -1,11 +1,20 @@
-import { Author } from './author';
-
 export type BlogPost = {
-  title: string;
+  id: string;
   slug: string;
-  heroImage: any;
+  body: string;
+  title: string;
   description: string;
-  body: any;
-  author: Author;
-  publishedDate: Date;
+  tags: string;
+  heroImage: {
+    url: string;
+  };
+  author: {
+    id: string;
+    name: string;
+    title: string;
+    company: string;
+    shortBio: string;
+    twitter: string;
+  };
+  publishedAt: Date;
 };
