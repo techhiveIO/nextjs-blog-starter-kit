@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
-import * as snippet from '@segment/snippet'
-import { FAVICON, SEGMENT_API_KEY, METOMIC_PROJECT_ID } from '../template'
+import * as snippet from '@segment/snippet';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+import React from 'react';
+import { FAVICON, METOMIC_PROJECT_ID, SEGMENT_API_KEY } from '../template';
 
 type Props = {
   isProduction: boolean;
@@ -31,7 +31,7 @@ export default class extends Document<Props> {
     const { isProduction } = this.props;
 
     return (
-      <html lang={language}>
+      <Html lang={language}>
         <Head>
           {/*Global meta tags*/}
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -53,7 +53,7 @@ export default class extends Document<Props> {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

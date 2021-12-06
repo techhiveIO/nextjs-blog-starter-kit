@@ -13,12 +13,7 @@
     "type-check": "tsc",
     "format:write": "prettier \"**/*.{tsx,js,json,md,css}\" --write",
     "format:test": "prettier \"**/*.{tsx,js,json,md,css}\" --list-different",
-    "lint": "eslint --fix . && echo 'Lint complete.'",
-    "release": "standard-version && git push --follow-tags origin master",
-    "populate:contentful": "contentful space migration --space-id <SPACE_KEY> utils/contentful.js --yes",
-    "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate",
-    "contributors:check": "all-contributors check"
+    "lint": "eslint --fix . && echo 'Lint complete.'"
   },
   "repository": {
     "type": "git",
@@ -40,21 +35,20 @@
     "url": "https://github.com/techhiveIO/nextjs-static-boilerplate/issues"
   },
   "homepage": "https://github.com/techhiveIO/nextjs-static-boilerplate#readme",
-  "pre-commit": "pretty-quick --staged",
   "dependencies": {
     "@segment/snippet": "^4.4.0",
     "classnames": "^2.2.6",
-    "contentful": "~7.10.0",
+    "contentful": "^9.1.5",
     "dotenv": "~8.1.0",
     "eslint-plugin-prettier": "~3.1.1",
     "express": "~4.17.1",
     "isomorphic-unfetch": "~3.0.0",
-    "next": "10.0.7",
+    "next": "^12.0.7",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-highlight": "^0.14.0",
     "react-markdown": "6.0.0",
-    "serve": "~11.2.0"
+    "styled-jsx": "^4.0.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.4.0",
@@ -63,15 +57,10 @@
     "@types/react-dom": "~16.9.1",
     "@typescript-eslint/eslint-plugin": "~2.3.2",
     "@typescript-eslint/parser": "~2.3.2",
-    "all-contributors-cli": "^6.9.1",
     "autoprefixer": "^10.2.4",
-    "contentful-cli": "~1.1.1",
-    "contentful-migration": "~1.0.2",
     "eslint-config-prettier": "~6.3.0",
     "postcss": "^8.2.7",
     "prettier": "~1.18.2",
-    "pretty-quick": "~1.11.1",
-    "standard-version": "~7.0.0",
     "tailwindcss": "^2.0.3",
     "typescript": "~3.6.3"
   }
