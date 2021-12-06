@@ -1,14 +1,13 @@
-import { MetaTags, PageType, RobotsContent } from '../interfaces/meta-tags';
-
-import { BASE_URL } from '../template';
-import { BlogPost } from '../interfaces/post';
-import Card from '../shared/components/card.component';
-import { ContentfulService } from '../core/contentful';
-import Highlight from 'react-highlight';
-import Layout from '../shared/components/layout.component';
 import { NextPage } from 'next';
 import React from 'react';
+import Highlight from 'react-highlight';
 import ReactMarkdown from 'react-markdown';
+import { ContentfulService } from '../core/contentful';
+import { MetaTags, PageType, RobotsContent } from '../interfaces/meta-tags';
+import { BlogPost } from '../interfaces/post';
+import Layout from '../shared/components/layout.component';
+import { BASE_URL } from '../template';
+
 
 type Props = {
   article: BlogPost;
@@ -79,7 +78,7 @@ const PostPage: NextPage<Props> = props => {
             a: ({ node, ...props }: any) => {
               const isYouTubeLink = props.href.includes('youtube');
 
-              if (!isYouTubeLink) return 'a';
+              if (!isYouTubeLink) return  <a {...props} />;
 
               return <a {...props} className="embedly-card" data-card-embed />;
             },
