@@ -39,7 +39,7 @@
     "@segment/snippet": "^4.4.0",
     "classnames": "^2.2.6",
     "contentful": "^9.1.5",
-    "dotenv": "~8.1.0",
+    "dotenv": "~8.6.0",
     "eslint-plugin-prettier": "~3.1.1",
     "express": "~4.17.1",
     "isomorphic-unfetch": "~3.0.0",
