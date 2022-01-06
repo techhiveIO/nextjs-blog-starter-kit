@@ -8,7 +8,6 @@ import { BlogPost } from '../interfaces/post';
 import Layout from '../shared/components/layout.component';
 import { BASE_URL } from '../template';
 
-
 type Props = {
   article: BlogPost;
   suggestedArticles: BlogPost[];
@@ -19,7 +18,16 @@ type Props = {
 //     <Card key={index} info={suggestion} />
 //   ));
 
-const CodeBlock = ({ children }) => {
+const CodeBlock = ({ className, inline, children }) => {
+  if (inline) {
+    return (
+      <pre className="inline px-2 py-1 text-sm text-gray-500 bg-gray-200">
+        {children}
+      </pre>
+    );
+  }
+
+  const lang = className?.replace('language-');
   return (
     <div className="mb-4 overflow-hidden rounded-lg shadow-md max-md:m-auto">
       <div className="flex items-center justify-between bg-ui-800">
@@ -40,7 +48,10 @@ const CodeBlock = ({ children }) => {
         <div className="px-1 mr-4 text-xs font-medium bg-white rounded-md text-ui-500"></div>
       </div>
 
-      <Highlight language={'json'} className="px-6 py-4 text-sm bg-ui-600">
+      <Highlight
+        language={lang || 'json'}
+        className="px-6 py-4 text-sm bg-ui-600"
+      >
         {children}
       </Highlight>
     </div>
@@ -78,7 +89,7 @@ const PostPage: NextPage<Props> = props => {
             a: ({ node, ...props }: any) => {
               const isYouTubeLink = props.href.includes('youtube');
 
-              if (!isYouTubeLink) return  <a {...props} />;
+              if (!isYouTubeLink) return <a {...props} />;
 
               return <a {...props} className="embedly-card" data-card-embed />;
             },
