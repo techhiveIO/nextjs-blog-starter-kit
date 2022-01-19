@@ -37,7 +37,7 @@
   "homepage": "https://github.com/techhiveIO/nextjs-static-boilerplate#readme",
   "dependencies": {
     "@segment/snippet": "^4.15.3",
-    "classnames": "^2.2.6",
+    "classnames": "^2.3.1",
     "contentful": "^9.1.5",
     "dotenv": "~8.6.0",
     "eslint-plugin-prettier": "~3.1.1",
