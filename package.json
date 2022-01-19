@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/techhiveIO/nextjs-static-boilerplate#readme",
   "dependencies": {
-    "@segment/snippet": "^4.4.0",
+    "@segment/snippet": "^4.15.3",
     "classnames": "^2.2.6",
     "contentful": "^9.1.5",
     "dotenv": "~8.6.0",
