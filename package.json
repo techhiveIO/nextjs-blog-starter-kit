@@ -47,7 +47,7 @@
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-highlight": "^0.14.0",
-    "react-markdown": "6.0.0",
+    "react-markdown": "6.0.3",
     "styled-jsx": "^4.0.1"
   },
   "devDependencies": {
