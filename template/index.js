@@ -1,26 +1,26 @@
-export const SITE_NAME = 'Apideck Blog';
-export const COPYRIGHT_NAME = 'Apideck';
-export const BASE_URL = 'https://blog.apideck.com/';
+export const SITE_NAME = 'Apideck Blog'
+export const COPYRIGHT_NAME = 'Apideck'
+export const BASE_URL = 'https://blog.apideck.com/'
 export const FAVICON =
-  'https://res.cloudinary.com/apideck/image/upload/v1588464645/blog/favicon.png';
+  'https://res.cloudinary.com/apideck/image/upload/v1588464645/blog/favicon.png'
 export const LOGO =
-  'https://res.cloudinary.com/apideck/image/upload/v1588464645/blog/logo.svg';
+  'https://res.cloudinary.com/apideck/image/upload/v1588464645/blog/logo.svg'
 export const OG_IMAGE =
-  'https://res.cloudinary.com/apideck/image/upload/v1588464645/blog/social.jpg';
+  'https://res.cloudinary.com/apideck/image/upload/v1588464645/blog/social.jpg'
 export const OG_DESCRIPTION =
-  'Stay up to date with the latest Apideck news. Get the latest industry insights and trends about building successful SaaS ecosystems, platforms, partnerships, integrations & APIs.';
-export const TWITTER_HANDLE = 'apideck';
-export const TWITTER_URL = 'https://www.twitter.com/' + TWITTER_HANDLE;
-export const MASTHEAD_BG_COLOR = '#080b4b';
-export const FOOTER_BG_COLOR = '#080A2D';
-export const PRIMARY_COLOR = '';
-export const METOMIC_PROJECT_ID = '97d085e6-af9d-4990-8fa2-6fbd04940e49';
-export const SEGMENT_API_KEY = '';
-export const CTA_TITLE = 'Ready to get started?';
+  'Stay up to date with the latest Apideck news. Get the latest industry insights and trends about building successful SaaS ecosystems, platforms, partnerships, integrations & APIs.'
+export const TWITTER_HANDLE = 'apideck'
+export const TWITTER_URL = 'https://www.twitter.com/' + TWITTER_HANDLE
+export const MASTHEAD_BG_COLOR = '#080b4b'
+export const FOOTER_BG_COLOR = '#080A2D'
+export const PRIMARY_COLOR = ''
+export const METOMIC_PROJECT_ID = '97d085e6-af9d-4990-8fa2-6fbd04940e49'
+export const SEGMENT_API_KEY = ''
+export const CTA_TITLE = 'Ready to get started?'
 export const CTA_DESCRIPTION =
-  'Start building your ecosystem in less than 5 minutes';
-export const CTA_BUTTON_LABEL = 'Sign up';
-export const CTA_BUTTON_LINK = 'https://app.apideck.com/signup';
+  'Start scaling your integration strategy in less than 5 minutes'
+export const CTA_BUTTON_LABEL = 'Sign up'
+export const CTA_BUTTON_LINK = 'https://app.apideck.com/signup'
 
 export const NAV_LINKS = [
   {
@@ -71,7 +71,7 @@ export const NAV_LINKS = [
     type: 'button',
     className: 'ml-4'
   }
-];
+]
 
 export const FOOTER_LINKS = [
   {
@@ -90,7 +90,7 @@ export const FOOTER_LINKS = [
     href: 'https://apideck.gdprform.io/en',
     label: 'Data Requests'
   }
-];
+]
 
 // export const META_THEME_COLOR = PRIMARY_COLOR
 
