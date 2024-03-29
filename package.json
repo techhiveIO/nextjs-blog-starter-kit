@@ -49,7 +49,7 @@
     "dotenv-webpack": "^8.0.1",
     "eslint-config-next": "^14.0.4",
     "eslint-plugin-prettier": "~5.1.2",
-    "express": "~4.18.2",
+    "express": "~4.19.2",
     "isomorphic-unfetch": "~4.0.2",
     "next": "~14.0.4",
     "react": "~18.2.0",
