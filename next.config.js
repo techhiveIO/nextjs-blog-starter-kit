@@ -19,6 +19,21 @@ const next_config = {
     CONTENTFUL_TOKEN: process.env.CONTENTFUL_TOKEN
   },
 
+  redirects: async () => {
+    return [
+      {
+        source: '/platform-heroes-github-marketplace',
+        destination: 'https://www.apideck.com/blog/platform-heroes-github-marketplace',
+        permanent: true,
+      }
+      // {
+      //   source: '/what-is-a-unified-api',
+      //   destination: 'https://www.apideck.com/blog/the-power-of-real-time-unified-apis',
+      //   permanent: true,
+      // }
+    ]
+  },
+
   exportPathMap: async () => {
     const articles = await generateAllArticles();
 
